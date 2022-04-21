@@ -1,0 +1,64 @@
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+dependencies:
+  # - <organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+  - OpenZeppelin/openzeppelin-contracts@3.0.0
+
+compiler:
+  # evm_version: Istanbul
+  # solc:
+    # optimizer:
+    #   enabled: true
+    #   runs: 200
+  solc:
+    version: 0.6.6
+    remappings:  # @chainlink is import we used in sol file so that it can grab from here
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.0.0'
+
+# brownie networks list (to see all networks)
+networks:
+  default: development
+  rinkeby:
+    vrf_coordinator:  '0x6168499c0cFfCaCD319c818142124B7A15E857ab'
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    link_token: '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
+    keyhash:  '0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc'
+    fee:  250000000000000000 
+    verify: True
+  mainnet-fork-dev: # mainnet for is for the fork test other technique from Mock test
+    vrf_coordinator:  '0x271682DEB8C4E0901D1a1550aD2e64D568E69909'
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    link_token: '0x514910771af9ca656af840dff83e8264ecf986ca'
+    keyhash:  '0x8af398995b04c28e9951adb9721ef74c74f93e6a478f39e7e0777be13527e7ef'
+    fee:  250000000000000000
+    verify: False
+  development:  # we keyhash and fee of rinkeby
+    keyhash:  '0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc'
+    fee:  250000000000000000
+    verify: False
+  ganache-local:
+    verify: False
+
+
+# /*
+#     Search Like Aggregator Contract addreses chainlink docs
+
+#     // These all are different according to networks like for Rinkeby, Mainnet others are there
+#     // You will get all these addresses from chainlink docs
+    
+#     // You will get this address from chainlink docs AggregatorV3Interface according to the network you want
+#     address _priceFeedAddress,
+
+#     // You will get this address from chainlink docs Link Token Contracts
+#     address _link,
+    
+
+#     // You will get this address from chainlink docs VRFConsumerBase according to the network you want
+#     address _vrfCordinator,
+#     uint256 _fee,
+#     bytes32 _keyhash
+# */

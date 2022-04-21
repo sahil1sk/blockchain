@@ -1,0 +1,29 @@
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+dependencies:
+  # - <organization/repo>@<version>
+  - OpenZeppelin/openzeppelin-contracts@3.0.0
+
+compiler:
+  # evm_version: Istanbul
+  # solc:
+    # optimizer:
+    #   enabled: true
+    #   runs: 200
+  solc:
+    version: 0.6.6
+    remappings:  # @chainlink is import we used in sol file so that it can grab from here
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.0.0'
+
+networks:
+  default: development
+  rinkeby:
+    verify: True
+  mainnet-fork-dev: # mainnet for is for the fork test other technique from Mock test
+    verify: False
+  development:  
+    verify: False
+  ganache-local:
+    verify: False

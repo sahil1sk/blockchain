@@ -1,0 +1,34 @@
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+dependencies:
+  # - <organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  # evm_version: Istanbul
+  # solc:
+    # optimizer:
+    #   enabled: true
+    #   runs: 200
+  solc:
+    version: 0.6.6
+    remappings: # @chainlink is import we used in sol file so that it can grab from here
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+
+# brownie networks list (to see all networks)
+networks:
+  default: development
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+  mainnet-fork-dev: # mainnet for is for the fork test other technique from Mock test
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+
+# like there other networks contains ther eth_usd_price feed address this address you will get from chainlink docs
+

@@ -1,0 +1,6 @@
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+# .env to load the env file data
+# setting the private key in from key to use it directly import the confi 

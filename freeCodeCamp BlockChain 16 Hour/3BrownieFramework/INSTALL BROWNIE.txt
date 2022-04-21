@@ -1,0 +1,9 @@
+git clone https://github.com/eth-brownie/brownie.git
+cd brownie
+python3 setup.py install
+
+=> brownie --version
+=> brownie init (To create the project)
+
+
+=> pip install web3
