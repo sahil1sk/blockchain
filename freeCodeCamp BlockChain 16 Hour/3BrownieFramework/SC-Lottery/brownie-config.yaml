@@ -14,7 +14,7 @@ compiler:
     #   enabled: true
     #   runs: 200
   solc:
-    version: 0.6.6
+    version: 0.6.6  # this is the compiler version we gave
     remappings:  # @chainlink is import we used in sol file so that it can grab from here
       - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.0.0'
