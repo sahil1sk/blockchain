@@ -2,7 +2,6 @@ from web3 import Web3
 from scripts.helper import get_account
 from brownie import DappToken, TokenFarm, network, config
 
-
 KEPT_BALANCE = Web3.toWei(100, "ether")
 
 

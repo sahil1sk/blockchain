@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { getDefaultProvider } from 'ethers'
+
+import { ChainId, DAppProvider, DEFAULT_SUPPORTED_CHAINS, Config, Kovan } from '@usedapp/core';
+import { Header } from './components/Header';
+import { Container } from '@material-ui/core';
+import { Main } from './components/Main';
+
+const config: Config = {
+  readOnlyChainId: Kovan.chainId,
+  readOnlyUrls: {
+    [Kovan.chainId]: getDefaultProvider('kovan'),
+  },
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DAppProvider
+      config={config}
+    // config={{   // We are only supporting kovan here
+    //   // supportedChains: [ChainId.Kovan], // [ChainId.Kovan, ChainId.Rinkeby, 1337]
+    //   networks: DEFAULT_SUPPORTED_CHAINS
+    // }}
+    >
+      <Header />
+      <Container maxWidth='md'>
+        <Main />
+      </Container>
+    </DAppProvider>
   );
 }
 

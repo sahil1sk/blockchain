@@ -1,0 +1,17 @@
+{
+  "contracts": {
+    "DappToken": "d9ecf952afa9f90119e16b5ec86b766594cc7252",
+    "OpenZeppelin/openzeppelin-contracts@4.2.0/ERC20": "46265bce5d8560fb57eeebb5352b753a38dd6665",
+    "TokenFarm": "369ac0e62ab70b48e2ca1264eb7365a8f3d98aa4"
+  },
+  "tests": {
+    "tests/unit/test_token_farm.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "ss.",
+      "sha1": "c0c477322dd655783eab6ff265d4af4cfe8a961c",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}
