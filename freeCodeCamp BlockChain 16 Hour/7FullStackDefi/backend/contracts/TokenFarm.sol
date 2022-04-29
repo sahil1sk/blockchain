@@ -80,7 +80,7 @@ contract TokenFarm is Ownable {
             priceFeedAddress
         );
         (, int256 price, , , ) = priceFeed.latestRoundData();
-        uint256 decimals = priceFeed.decimals(); // getting decimals of that pricefeed value
+        uint256 decimals = uint256(priceFeed.decimals()); // getting decimals of that pricefeed value
         return (uint256(price), decimals);
     }
 
