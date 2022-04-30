@@ -13,7 +13,6 @@ export const WalletBalance = ({ token }: WalletBalanceProps) => {
     const tokenBalance = useTokenBalance(address, account);
     // Formatting the big decimal number remove extra 18 zeros
     const formattedTokenBalance: number = tokenBalance ? parseFloat(formatUnits(tokenBalance, 18)) : 0;
-    console.log(`WalletBalance: ${formattedTokenBalance}`);
     return (
         <BalanceMsg
             label={`Your un-staked ${name} balance`}
