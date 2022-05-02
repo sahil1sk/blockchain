@@ -24,9 +24,9 @@ export const Header = () => {
                     isConnected ?
                         (
                             <Button
-                                color='primary'
+                                color='default'
                                 onClick={deactivate}
-                                variant='outlined'
+                                variant='contained'
                             >
                                 Disconncet
                             </Button>

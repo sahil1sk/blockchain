@@ -11,6 +11,10 @@ const config: Config = {
   readOnlyUrls: {
     [Kovan.chainId]: getDefaultProvider('kovan'),
   },
+  notifications: {
+    expirationPeriod: 1000,   // 1000 milliseconds
+    checkInterval: 1000,      // Every 1000 milliseconds check the transaction of BC if any notification
+  },
 }
 
 function App() {

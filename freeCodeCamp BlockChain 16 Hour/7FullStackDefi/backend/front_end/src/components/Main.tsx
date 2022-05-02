@@ -4,6 +4,7 @@ import networkMapping from '../chain-info/deployments/map.json';
 import { constants } from "ethers";
 import brownieConfig from '../brownie-config.json';
 import { YourWallet } from "./yourWallet/YourWallet";
+import { makeStyles } from "@material-ui/core";
 
 export type Token = {
     image: string,
@@ -11,7 +12,16 @@ export type Token = {
     name: string
 }
 
+const useStyles = makeStyles((theme) => ({
+    title: {
+        color: theme.palette.common.white,
+        textAlign: "center",
+        padding: theme.spacing(4),
+    }
+}))
+
 export const Main = () => {
+    const classes = useStyles();
     // Show token values from the wallet
     // Get the address of different tokens
     // Get the balance of the users
@@ -49,6 +59,9 @@ export const Main = () => {
     ];
 
     return (
-        <YourWallet supportedTokens={supportedTokens} />
+        <>
+            <h2 className={classes.title}>Dapp Token App</h2>
+            <YourWallet supportedTokens={supportedTokens} />
+        </>
     );
 };

@@ -41,8 +41,17 @@ export const useStakeTokens = (tokenAddress: string) => {
         }
     }, [approveERc20State, amountToStake, tokenAddress]);
 
+    // For tracking the both states one by one if one tracked track other one now
+    const [state, setState] = useState(approveERc20State);
+    useEffect(() => {
+        if (approveERc20State.status === "Success") {
+            setState(stakeState);
+        } else {
+            setState(approveERc20State);
+        }
+    }, [approveERc20State, stakeState]);
 
-    return { approve, approveERc20State };
+    return { approve, state };
 
 }
 
